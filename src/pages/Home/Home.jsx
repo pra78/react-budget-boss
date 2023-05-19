@@ -1,9 +1,9 @@
 import Balance from 'components/Balance/Balance';
-import { Suspense, Outlet } from 'react';
+import { Suspense } from 'react';
 import { Link } from 'react-router-dom';
 import AddTransaction from 'components/AddTransaction/AddTransatcion';
 import TransactionsList from 'components/TransactionsList/TransactionsList';
-
+import { Outlet } from 'react-router-dom';
 const Home = () => {
   <div>
     <Balance />
