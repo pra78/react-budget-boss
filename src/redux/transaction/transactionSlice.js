@@ -25,7 +25,12 @@ const transactionSlice = createSlice({
       .addCase(getTransactionIncome.pending, state => {
         state.isLoading = true;
       })
-      .addCase(getTransactionIncome.fulfilled)
+      .addCase(getTransactionIncome.fulfilled, (state, { payload }) => {
+        state.isLoading = false;
+        state.error = null;
+        state.incomes = payload.incomes;
+        state.monthStats = payload.monthStats;
+      })
       .addCase(getTransactionIncome.rejected, (state, { payload }) => {
         state.isLoading = false;
         state.error = payload;
@@ -69,6 +74,8 @@ const transactionSlice = createSlice({
       });
   },
 });
+
+export default transactionSlice.reducer;
 
 //   [
 //     "Продукты",
