@@ -16,20 +16,11 @@ export const token = {
 /* ================== AUTHORIZATION & AUTHENTICATION =========================== */
 
 export const registerUserApi = userForm => {
-  return axios
-    .post('/auth/register', { ...userForm })
-    .then(({ data: { email, id } }) => ({ email, id }));
+  return axios.post('/auth/register', { ...userForm }).then(res => res);
 };
 
 export const loginUserApi = userForm => {
-  return axios
-    .post('/auth/login', { ...userForm })
-    .then(({ data: { accessToken, refreshToken, sid, userData } }) => ({
-      accessToken,
-      refreshToken,
-      sid,
-      userData,
-    }));
+  return axios.post('/auth/login', { ...userForm }).then(res => res);
 };
 
 export const logoutUserApi = () => {
@@ -37,13 +28,7 @@ export const logoutUserApi = () => {
 };
 
 export const refreshTokenApi = sid => {
-  return axios
-    .post('/auth/refresh', { sid })
-    .then(({ data: { newAccessToken, newRefreshToken, newSid } }) => ({
-      newAccessToken,
-      newRefreshToken,
-      newSid,
-    }));
+  return axios.post('/auth/refresh', { sid }).then(res => res);
 };
 
 /* ================== GOOGLE AUTHORIZATION ======================= */
@@ -103,66 +88,44 @@ export const refreshTokenApi = sid => {
 export const addTransactionIncomeApi = transactionForm => {
   return axios
     .post('/transaction/income', { ...transactionForm })
-    .then(({ data: { newBalance, transaction } }) => ({
-      newBalance,
-      transaction,
-    }));
+    .then(res => res);
 };
 
 export const getTransactionIncomeApi = () => {
-  return axios
-    .get('/transaction/income')
-    .then(({ data: { incomes, monthStats } }) => ({ incomes, monthStats }));
+  return axios.get('/transaction/income').then(res => res);
 };
 
 export const addTransactionExpenseApi = transactionForm => {
   return axios
     .post('/transaction/expense', { ...transactionForm })
-    .then(({ data: { newBalance, transaction } }) => ({
-      newBalance,
-      transaction,
-    }));
+    .then(res => res);
 };
 
 export const getTransactionExpenseApi = () => {
-  return axios
-    .get('/transaction/expense')
-    .then(({ data: { incomes, monthStats } }) => ({ incomes, monthStats }));
+  return axios.get('/transaction/expense').then(res => res);
 };
 
 export const deleteTransactionApi = transactionId => {
-  return axios
-    .delete(`/transaction/${transactionId}`)
-    .then(({ data: { newBalance } }) => ({ newBalance }));
+  return axios.delete(`/transaction/${transactionId}`).then(res => res);
 };
 
 export const getTransactionIncomeCategoriesApi = () => {
-  return axios.get('/transaction/income-categories').then(res => res.data);
+  return axios.get('/transaction/income-categories').then(res => res);
 };
 
 export const getTransactionExpenseCategoriesApi = () => {
-  return axios.get('/transaction/expense-categories').then(res => res.data);
+  return axios.get('/transaction/expense-categories').then(res => res);
 };
 
 export const getTransactionPeriodDataApi = date => {
-  return axios
-    .get(`/transaction/period-data?date=${date}`)
-    .then(({ data: { incomes, expenses } }) => ({ incomes, expenses }));
+  return axios.get(`/transaction/period-data?date=${date}`).then(res => res);
 };
 
 /* ================== USER =========================== */
 export const updateUserBalanceApi = newBalance => {
-  return axios
-    .patch('/user/balance', { ...newBalance })
-    .then(({ data: { newBalance } }) => ({ newBalance }));
+  return axios.patch('/user/balance', { ...newBalance }).then(res => res);
 };
 
 export const getUserInfoApi = () => {
-  return axios
-    .get('/user')
-    .then(({ data: { email, balance, transactions } }) => ({
-      email,
-      balance,
-      transactions,
-    }));
+  return axios.get('/user').then(res => res);
 };
