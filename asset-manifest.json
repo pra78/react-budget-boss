@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/react-budget-boss/static/css/main.7acaea2f.css",
-    "main.js": "/react-budget-boss/static/js/main.80a8fdc6.js",
+    "main.js": "/react-budget-boss/static/js/main.8bead3f5.js",
     "static/media/wallet.png": "/react-budget-boss/static/media/wallet.69a5117ccf911700a1f4.png",
     "index.html": "/react-budget-boss/index.html",
     "main.7acaea2f.css.map": "/react-budget-boss/static/css/main.7acaea2f.css.map",
-    "main.80a8fdc6.js.map": "/react-budget-boss/static/js/main.80a8fdc6.js.map"
+    "main.8bead3f5.js.map": "/react-budget-boss/static/js/main.8bead3f5.js.map"
   },
   "entrypoints": [
     "static/css/main.7acaea2f.css",
-    "static/js/main.80a8fdc6.js"
+    "static/js/main.8bead3f5.js"
   ]
 }
