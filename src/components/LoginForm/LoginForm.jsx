@@ -20,7 +20,7 @@ const LoginForm = () => {
   return (
     <div>
       <h1>You can log in with your Google Account:</h1>
-      <a href="/">Google</a>
+      <a href="https://kapusta-backend.goit.global/auth/google">Google</a>
       <form onSubmit={handleSubmit}>
         <h2>Or log in using an email and password, after registering:</h2>
         <label>

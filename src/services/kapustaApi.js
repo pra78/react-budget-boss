@@ -1,6 +1,6 @@
 import axios from 'axios';
 import queryString from 'query-string';
-import URL from 'url';
+// import URL from 'url';
 
 const baseUrl = 'https://kapusta-backend.goit.global';
 
@@ -76,12 +76,18 @@ export const googleRedirect = async (req, res) => {
     },
   });
   // userData.data.email
+  // userData.data.accessToken
+  // userData.data.refreshToken
+  // userData.data.sid
   // ...
   // ...
   // ...
   return res.redirect(
-    `${process.env.FRONTEND_URL}?email=${userData.data.email}`
+    `${process.env.FRONTEND_URL}/google-redirect?email=${userData.data.email}`
   );
+  // return res.redirect(
+  //   `${process.env.FRONTEND_URL}/google-redirect?accessToken=${userData.data.accessToken}&refreshToken=${userData.data.refreshToken}&sid=${userData.data.sif}`
+  // );
 };
 
 /* ================== TRANSACTIONS =========================== */
