@@ -5,6 +5,7 @@ import {
   logoutUser,
   refreshToken,
   registerUser,
+  // googleAuth,
 } from './authOperations';
 
 const initialState = {
@@ -21,6 +22,11 @@ const initialState = {
 const authSlice = createSlice({
   name: 'auth',
   initialState,
+  reducers: {
+    googleAuth(state, { payload }) {
+      return { ...state, ...payload };
+    },
+  },
   extraReducers: builder => {
     builder
       // ============== REGISTRATION ====================
@@ -101,7 +107,24 @@ const authSlice = createSlice({
         state.isLoading = false;
         state.error = payload;
       });
+    // ================ GOOGLE AUTHORIZATION ================
+    // .addCase(googleAuth.pending, state => {
+    //   state.isLoading = true;
+    // })
+    // .addCase(googleAuth.fulfilled, (state, { payload }) => {
+    //   return {
+    //     isAuth: true,
+    //     isLoading: false,
+    //     error: null,
+    //     ...payload,
+    //   };
+    // })
+    // .addCase(googleAuth.rejected, (state, { payload }) => {
+    //   state.isLoading = false;
+    //   state.error = payload;
+    // });
   },
 });
 
+export const { googleAuth } = authSlice.actions;
 export default authSlice.reducer;
