@@ -7,10 +7,10 @@ const Layout = () => {
         <>
             <Header />
             <Suspense fallback={<h1>Loading...</h1>}>
-                <Outlet/>
+                <Outlet />
             </Suspense>
-        </>  
-);
+        </>
+    );
 };
 
 export default Layout;

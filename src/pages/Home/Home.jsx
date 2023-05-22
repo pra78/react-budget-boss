@@ -1,24 +1,12 @@
-import Balance from 'components/Balance/Balance';
-import { Suspense } from 'react';
-import { Link } from 'react-router-dom';
-import AddTransaction from 'components/AddTransaction/AddTransaction';
-import TransactionsList from 'components/TransactionsList/TransactionsList';
-import { Outlet } from 'react-router-dom';
+import HomeBar from 'components/HomeBar/HomeBar';
+import TransactionContainer from 'components/TransactionContainer/TransactionContainer';
 
 const Home = () => {
-  <div>
-    <Balance />
-    <Link to="reports">Reports</Link>
-    <div>
-      <Link to="expenses">Expenses</Link>
-      <Link to="income">Income</Link>
-    </div>
-    <AddTransaction></AddTransaction>
-    <TransactionsList></TransactionsList>
-    <Suspense>
-      <Outlet />
-    </Suspense>
-  </div>;
+  return (
+    <section>
+      <HomeBar />
+      <TransactionContainer/>
+    </section>);
 };
 
 export default Home;

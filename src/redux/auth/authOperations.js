@@ -7,7 +7,7 @@ import {
   refreshTokenApi,
   token,
   getUserInfoApi,
-  // authGoogle,
+  googleAuthApi,
 } from 'services/kapustaApi';
 
 export const registerUser = createAsyncThunk(
@@ -84,6 +84,25 @@ export const refreshToken = createAsyncThunk(
     } catch (error) {
       setTimeout(() => {
         dispatch(logoutUser);
+      }, 0);
+      return rejectWithValue(error.message);
+    }
+  }
+);
+
+export const googleAuth = createAsyncThunk(
+  'auth/google',
+  async (_, { rejectWithValue, dispatch, getState }) => {
+    try {
+      const authGoogle = await googleAuthApi();
+      console.log(authGoogle);
+      token.set(authGoogle.data.accessToken);
+      const { data } = await getUserInfoApi();
+      console.log('data: ', data);
+      return data;
+    } catch (error) {
+      setTimeout(() => {
+        dispatch(googleAuth);
       }, 0);
       return rejectWithValue(error.message);
     }

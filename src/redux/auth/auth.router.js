@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { googleAuth, googleRedirect } from 'services/kapustaApi';
+import { googleAuth, googleRedirect } from './auth.controller';
 import tryCatchWrapper from '../helpers/try-catch-wrapper';
 
 const router = Router();
